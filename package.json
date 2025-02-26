@@ -1,17 +1,24 @@
 {
   "name": "web-three-utils",
-  "version": "1.0.0",
-  "description": "Web3D utility methods for generating material maps (Roughness, Normal, Metalness) from an albedo image.",
-  "main": "index.cjs",
-  "module": "index.mjs",
-  "types": "index.d.ts",
+  "version": "1.1.8",
+  "description": "Web3D utility methods for generating material maps (Roughness, Normal, Metalness) from an image.",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "import": "./index.mjs",
-    "require": "./index.cjs"
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs",
+    "types": "./dist/index.d.ts",
+    "default": "./dist/index.mjs"
   },
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm",
+    "build:cjs": "babel src --out-dir dist/cjs --extensions .js --env-name cjs",
+    "build:esm": "babel src --out-dir dist/esm --extensions .js --env-name esm",
+    "postbuild": "cpx dist/esm/index.js dist/index.mjs && cpx dist/cjs/index.js dist/index.cjs",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,12 +34,20 @@
     "graphics"
   ],
   "author": "Aadarsh Gupta",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AadarshGupta07/web-three-utils/issues"
   },
   "homepage": "https://github.com/AadarshGupta07/web-three-utils#readme",
   "dependencies": {
-    "canvas": "^2.11.2"
+    "canvas": "^2.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "cpx": "^1.5.0",
+    "mkdirp": "^3.0.1",
+    "rimraf": "^6.0.1"
   }
 }
