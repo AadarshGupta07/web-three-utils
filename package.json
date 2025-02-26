@@ -1,0 +1,38 @@
+{
+  "name": "web-three-utils",
+  "version": "1.0.0",
+  "description": "Web3D utility methods for generating material maps (Roughness, Normal, Metalness) from an albedo image.",
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./index.cjs"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AadarshGupta07/web-three-utils.git"
+  },
+  "keywords": [
+    "web3d",
+    "utils",
+    "3d-material",
+    "normal-map",
+    "roughness-map",
+    "metalness-map",
+    "graphics"
+  ],
+  "author": "Aadarsh Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AadarshGupta07/web-three-utils/issues"
+  },
+  "homepage": "https://github.com/AadarshGupta07/web-three-utils#readme",
+  "dependencies": {
+    "canvas": "^2.11.2"
+  }
+}
